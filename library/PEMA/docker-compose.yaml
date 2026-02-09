@@ -1,0 +1,11 @@
+services:
+  pema:
+    image: nginx:latest  # TODO: replace with pema image
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:8000:80'
+    # environment:
+    #   EXAMPLE: example
+    # volumes:
+    #   - ./persistent-data:/path/to/persistent-data
+
