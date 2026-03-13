@@ -1,1 +1,5 @@
-# ANERIS_DNA
+# ANERIS
+
+Workflows:
+* DNA
+* NIS
