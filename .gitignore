@@ -216,9 +216,15 @@ __marimo__/
 .streamlit/secrets.toml
 
 # NaaVRE
+Cloud Storage/
+Virtual Labs/
+
+example/
+
+.conda/
 .jupyter/
+.ipython/
+.vscode/
+
 .local/
 .python_history
-Example/
-Database/
-Tools/
