@@ -13,8 +13,8 @@
           - [output files](#output-files)
     - [PEMA workspace](#pema-workspace)
     - [local](#local)
-        - [pema\_org: hariszaf/pema:v.2.1.4](#pema_org-hariszafpemav214)
-      - [docker for  `ANERIS_DNA` project](#docker-for--aneris_dna-project)
+      - [pema\_org: hariszaf/pema:v.2.1.4](#pema_org-hariszafpemav214)
+      - [pema\_api: docker for  `ANERIS` project](#pema_api-docker-for--aneris-project)
     - [UvA](#uva)
       - [VM](#vm)
         - [Docker Composer](#docker-composer)
@@ -162,21 +162,21 @@ mydata  parameters.tsv  pema_latest.bds
 
 [local, FASTAPI](http://127.0.0.1/docs)
 
-workspace `C:\DockerShare\ANERIS_DNA\library\PEMA`
-dataspace `C:\DockerShare\ANERIS_DNA\example\PEMA\analysis:/mnt/analysis`
+workspace `C:\DockerShare\ANERIS\library\PEMA`
+dataspace `C:\DockerShare\ANERIS\example\PEMA\analysis:/mnt/analysis`
 
-##### pema_org: hariszaf/pema:v.2.1.4
+#### <a name='pema_org:hariszafpema:v.2.1.4'></a>pema_org: hariszaf/pema:v.2.1.4
 
 ```shell
-docker run -it --name pema_org --volume="//c/DockerShare/ANERIS_DNA/example/PEMA-Runner/analysis:/mnt/analysis" hariszaf/pema:v.2.1.4
+docker run -it --name pema_org --volume="//c/DockerShare/ANERIS/example/DNA/PEMA-ORG/analysis:/mnt/analysis" hariszaf/pema:v.2.1.4
 
 docker exec -it pema_org bash
 ```
 
-#### <a name='dockerforANERIS_DNAproject'></a>docker for  `ANERIS_DNA` project
+#### <a name='pema_api:dockerforANERISproject'></a>pema_api: docker for  `ANERIS` project
 
 ```shell
-cd C:\DockerShare\ANERIS_DNA\library\PEMA
+cd C:\DockerShare\ANERIS\library\PEMA
 
 docker system prune -f
 docker rmi pema-api:dev
@@ -185,20 +185,20 @@ docker build . --no-cache -f pema.Dockerfile --progress plain --build-arg API_RE
 
 ```shell
 docker system prune -f
-docker run -it --rm --name pema_api --publish="80:80" --volume="//c/DockerShare/ANERIS_DNA/example/PEMA-Runner/analysis:/mnt/analysis" pema-api:dev
+docker run -it --rm --name pema_api --publish="80:80" --volume="//c/DockerShare/ANERIS/example/DNA/PEMA-API/analysis:/mnt/analysis" pema-api:dev
 
 docker exec -it pema_api bash
 ```
 
 ```shell
 # 1. create folder PEMA-docker
-# C:\DockerShare\ANERIS_DNA\example\PEMA-Runner\analysis\PEMA-docker
-# C:\DockerShare\ANERIS_DNA\example\PEMA-Runner\analysis\PEMA-docker\modules
+# C:\DockerShare\ANERIS\example\PEMA-Runner\analysis\PEMA-docker
+# C:\DockerShare\ANERIS\example\PEMA-Runner\analysis\PEMA-docker\modules
 
 # 2. copy file to PEMA-docker which is mounted to docker
 # copy
-#   From: C:\DockerShare\ANERIS_DNA\library\PEMA\api\modules\taxAssignment.bds
-#   To:   C:\DockerShare\ANERIS_DNA\example\PEMA-Runner\analysis\PEMA-docker\modules\taxAssignment.bds
+#   From: C:\DockerShare\ANERIS\library\PEMA\api\modules\taxAssignment.bds
+#   To:   C:\DockerShare\ANERIS\example\PEMA-Runner\analysis\PEMA-docker\modules\taxAssignment.bds
 
 # 3. then `cp`
 cp /mnt/analysis/PEMA-docker/pema_latest.bds           /home/pema_latest.bds
@@ -221,12 +221,12 @@ ssh ubuntu@pema-dev.naavre.net
 # /mnt/pema:/mnt/analysis
 sudo mkdir /mnt/pema
 sudo chmod 777 /mnt/pema
-scp -r C:\DockerShare\ANERIS_DNA\example\PEMA-Runner\analysis\case ubuntu@pema-dev.naavre.net:/mnt/pema/
+scp -r C:\DockerShare\ANERIS\example\PEMA-Runner\analysis\case ubuntu@pema-dev.naavre.net:/mnt/pema/
 
-scp -r C:\DockerShare\ANERIS_DNA\library\PEMA\* ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
-scp C:\DockerShare\ANERIS_DNA\library\PEMA\docker-compose.yaml ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
+scp -r C:\DockerShare\ANERIS\library\PEMA\* ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
+scp C:\DockerShare\ANERIS\library\PEMA\docker-compose.yaml ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
 
-scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS_DNA\library\PEMA\
+scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS\library\PEMA\
 ```
 
 ##### Docker Composer
@@ -234,7 +234,7 @@ scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerSh
 ```shell
 docker system prune -f
 
-cd C:\DockerShare\ANERIS_DNA\
+cd C:\DockerShare\ANERIS\
 docker compose up
 # docker compose up -d
 

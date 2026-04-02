@@ -1,23 +1,11 @@
 #  1. <a name='PEMA'></a>PEMA
 
 <!-- vscode-markdown-toc -->
-- [1. PEMA](#1-pema)
-  - [Requriements](#requriements)
-    - [Tools](#tools)
-    - [Database](#database)
-  - [DevOps](#devops)
-    - [docker](#docker)
-    - [workspace](#workspace)
-    - [VM, pema-dev.naavre.net](#vm-pema-devnaavrenet)
-      - [VM](#vm)
-      - [Composer](#composer)
-  - [Test](#test)
-    - [test\_18S, gene\_16S](#test_18s-gene_16s)
-    - [Res\_gene\_18S-PEMA\_v2.1.4-docker, gene\_18S](#res_gene_18s-pema_v214-docker-gene_18s)
-    - [compare, gene\_16S \& gene\_18S](#compare-gene_16s--gene_18s)
-  - [Viewer](#viewer)
-    - [C:\\MyPrograms\\FastTree\\FastTree.exe" -nt -gtr -out TEMP\_OUT\_FILE CURRENT\_ALIGNMENT\_FASTA](#cmyprogramsfasttreefasttreeexe--nt--gtr--out-temp_out_file-current_alignment_fasta)
-    - [C:\\MyPrograms\\FigTree\\FigTree v1.4.4.exe" TEMP\_OUT\_FILE](#cmyprogramsfigtreefigtree-v144exe-temp_out_file)
+* [Requriements](#Requriements)
+	* [Tools](#Tools)
+	* [Database](#Database)
+* [DevOps](#DevOps)
+	* [pema_org: hariszaf/pema:v.2.1.4](#pema_org:hariszafpema:v.2.1.4)
 
 <!-- vscode-markdown-toc-config
 	numbering=false
@@ -60,24 +48,35 @@
 
 ## <a name='DevOps'></a>DevOps
 
-### <a name='docker'></a>docker
+### <a name='pema_org:hariszafpema:v.2.1.4'></a>pema_org: hariszaf/pema:v.2.1.4
+
+```shell
+```shell
+docker run -it --name pema_org --volume="//c/DockerShare/ANERIS/example/DNA/PEMA-ORG/analysis:/mnt/analysis" hariszaf/pema:v.2.1.4
+
+docker exec -it pema_org bash
+```
+
+### <a name='pema_api:dockerforANERISproject'></a>pema_api: `ANERIS` project
 
 [local, FASTAPI](http://127.0.0.1/docs)
 
-workspace `C:\DockerShare\ANERIS_DNA\library\PEMA`
-dataspace `C:\DockerShare\ANERIS_DNA\Example\PEMA\analysis:/mnt/analysis`
+workspace `C:\DockerShare\ANERIS\library\PEMA`
+dataspace `C:\DockerShare\ANERIS\example\PEMA\analysis:/mnt/analysis`
 
 ```shell
-cd C:\DockerShare\ANERIS_DNA\library\PEMA
+cd C:\DockerShare\ANERIS\library\PEMA
 
-docker build . --no-cache -f pema.Dockerfile --build-arg API_REQ_FOLDER=api -t pema-api:dev
-docker run -it --rm --name api_pema --publish="80:80" --volume="//c/DockerShare/ANERIS_DNA/Example/PEMA/analysis:/mnt/analysis" pema-api:dev
-
-docker exec -it api_pema bash
+docker system prune -f
+docker rmi pema-api:dev
+docker build . --no-cache -f pema.Dockerfile --progress plain --build-arg API_REQ_FOLDER=api -t pema-api:dev
 ```
 
 ```shell
-docker run -it --name pema --volume="//c/DockerShare/ANERIS_DNA/PEMA/analysis:/mnt/analysis" hariszaf/pema:v.2.1.4
+docker system prune -f
+docker run -it --rm --name pema_api --publish="80:80" --volume="//c/DockerShare/ANERIS/example/DNA/PEMA-API/analysis:/mnt/analysis" pema-api:dev
+
+docker exec -it pema_api bash
 ```
 
 ### <a name='workspace'></a>workspace
@@ -99,7 +98,7 @@ mydata  parameters.tsv  pema_latest.bds
 ```shell
 ssh ubuntu@pema-dev.naavre.net
 
-scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS_DNA\library\PEMA\api\
+scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS\library\PEMA\api\
 ```
 
 #### <a name='Composer'></a>Composer
