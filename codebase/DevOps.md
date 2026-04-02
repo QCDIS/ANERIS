@@ -254,13 +254,19 @@ if not os.path.exists(dir_pema):
     os.makedirs(dir_pema)
 
 # Get pema
-url = "https://pema-dev.naavre.net"
-# url = "https://pema-dev.naavre.net/pema/case/"
+# url = "https://pema-dev.naavre.net"
+url = "https://pema-dev.naavre.net/pema/case/"
 
-r = requests.get(url)
-# print(r.status_code)
-# print(r.text)
-r.json()
+obj_response = requests.get(url)
+print(obj_response.status_code)
+# print(obj_response.text)
+
+dict_response = obj_response.json()
+for key, val in dict_response.items():
+    print("\n", key, "\n")
+    for val_sub in val:
+        print(val_sub, "\n")
+
 ```
 
 ##### upload zip return case_id
