@@ -1,0 +1,142 @@
+{
+  "chart": {
+    "offset": {
+      "x": 0,
+      "y": 0
+    },
+    "scale": 1,
+    "nodes": {
+      "aa936532-354d-4be9-b4a4-d6ef96ebbc93": {
+        "id": "aa936532-354d-4be9-b4a4-d6ef96ebbc93",
+        "position": {
+          "x": 585.7166748046875,
+          "y": 332
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "dummy_cell_arg_i": {
+            "id": "dummy_cell_arg_i",
+            "type": "left",
+            "properties": {
+              "color": "#982dd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": -2,
+              "y": 30
+            }
+          },
+          "dummy_cell_arg_o": {
+            "id": "dummy_cell_arg_o",
+            "type": "right",
+            "properties": {
+              "color": "#2d9bd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 252,
+              "y": 30
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/ebc1df04-8049-45a6-a7e5-843b7d99d0ae/",
+            "owner": "quan.pan@lifewatch.eu",
+            "virtual_lab": "ecvs",
+            "shared_with_scopes": [],
+            "shared_with_users": [],
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-ecvs-cell-build:v0.1.14",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-ecvs-cell-runtime:v0.1.14"
+            },
+            "dependencies": [
+              {
+                "name": "argopy",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "pyplot",
+                "module": "matplotlib",
+                "asname": "plt"
+              },
+              {
+                "name": "os",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "DataFetcher",
+                "module": "argopy",
+                "asname": null
+              },
+              {
+                "name": "datetime",
+                "module": "datetime",
+                "asname": null
+              }
+            ],
+            "inputs": [
+              {
+                "name": "dummy_cell_arg_i",
+                "type": "str"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "dummy_cell_arg_o",
+                "type": "str"
+              }
+            ],
+            "confs": [
+              {
+                "name": "conf_minio_user_local_root",
+                "assignation": "conf_minio_user_local_root = os.path.join('/', 'home', 'jovyan', 'Cloud Storage', 'naa-vre-user-data', 'ECVs', f\"wid-{datetime.now().strftime('%Y%m%d_%H%M%S%f')}\")"
+              }
+            ],
+            "params": [
+              {
+                "name": "param_ds",
+                "type": "str",
+                "default_value": "phy"
+              },
+              {
+                "name": "param_mode",
+                "type": "str",
+                "default_value": "standard"
+              },
+              {
+                "name": "param_src",
+                "type": "str",
+                "default_value": "erddap"
+              }
+            ],
+            "secrets": [],
+            "title": "ecvs-argo-surface-region-quan-pan-lifewatch-eu",
+            "description": "ecvs-argo-surface-region-quan-pan-lifewatch-eu",
+            "created": "2026-03-27T15:36:51.952665Z",
+            "modified": "2026-03-27T15:36:52.680236Z",
+            "version": 2,
+            "container_image": "ghcr.io/naavre/cells-vl-ecvs/ecvs-argo-surface-region-quan-pan-lifewatch-eu:4813aa6",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-ecvs/tree/ab750e21953e193a4c268dbc825a81ff9dfeec18/ecvs-argo-surface-region-quan-pan-lifewatch-eu",
+            "is_draft": false,
+            "next_version": null
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 61
+        }
+      }
+    },
+    "links": {},
+    "selected": {
+      "type": "node",
+      "id": "aa936532-354d-4be9-b4a4-d6ef96ebbc93"
+    },
+    "hovered": {}
+  }
+}
