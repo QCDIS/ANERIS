@@ -144,9 +144,6 @@ import os
 import sys
 from datetime import datetime
 
-# sys.path.append(conf_minio_public_local_code)
-# sys.path.append(conf_minio_user_local_code)
-
 # prepare folders
 # .....
 if not os.path.exists(conf_dir_data_local_tmp):
@@ -167,7 +164,7 @@ with open(conf_minio_user_local_flog, "w+") as fp_log:
 # create log
 # .....
 print(param_workflow_name)
-workflow_step = "DNA-Start"
+workflow_step = f"{conf_vlab_name}-Start"
 
 if os.path.exists(conf_minio_user_local_flog):
     with open(conf_minio_user_local_flog, "a+") as fp_log:
@@ -178,8 +175,13 @@ else:
     with open(conf_minio_user_local_flog, "w+") as fp_log:
         fp_log.write(f"\n## {workflow_step}\n") 
 
-# lib
+# lib, minio_public
 # -----
+# sys.path.append(conf_minio_public_local_code)
+
+# lib, minio_user
+# -----
+# sys.path.append(conf_minio_user_local_code)
 
 # input
 # -----
@@ -195,6 +197,7 @@ dummy_cell_arg_o = "dummy output"
 # start
 # -----
 
+# finish
 # -----
 with open(conf_minio_user_local_flog, "a+") as fp_log:
     fp_log.write(f"\nFinish: {workflow_step}\n")
