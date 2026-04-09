@@ -1,10 +1,10 @@
 {
   "chart": {
     "offset": {
-      "x": -101,
-      "y": -46
+      "x": -480.63,
+      "y": 79.1
     },
-    "scale": 1,
+    "scale": 0.907,
     "nodes": {
       "7ca9c659-0579-4310-befb-01ce10136aa3": {
         "id": "7ca9c659-0579-4310-befb-01ce10136aa3",
@@ -113,8 +113,8 @@
       "7eb44fa0-969e-40fe-98e4-6daff684b04a": {
         "id": "7eb44fa0-969e-40fe-98e4-6daff684b04a",
         "position": {
-          "x": 1446.2833251953125,
-          "y": 556
+          "x": 1850.9139756914547,
+          "y": 506.3858875413453
         },
         "orientation": 0,
         "type": "workflow-cell",
@@ -336,11 +336,11 @@
           "height": 61
         }
       },
-      "f4686d5a-4db4-4fd6-84b1-3d32590dac1a": {
-        "id": "f4686d5a-4db4-4fd6-84b1-3d32590dac1a",
+      "d493ff55-ad95-4360-b1f4-967da224b774": {
+        "id": "d493ff55-ad95-4360-b1f4-967da224b774",
         "position": {
-          "x": 706.2833251953125,
-          "y": 139
+          "x": 1087.5,
+          "y": 316
         },
         "orientation": 0,
         "type": "workflow-cell",
@@ -372,7 +372,7 @@
         },
         "properties": {
           "cell": {
-            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/4f512390-5200-4a46-a658-a0212d8f144b/",
+            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/068d13f5-9e9b-495a-9516-415caf7ddc2a/",
             "owner": "quan.pan@lifewatch.eu",
             "virtual_lab": "aneris",
             "shared_with_scopes": [],
@@ -383,12 +383,22 @@
             },
             "dependencies": [
               {
+                "name": "datetime",
+                "module": "datetime",
+                "asname": null
+              },
+              {
                 "name": "os",
                 "module": "",
                 "asname": null
               },
               {
                 "name": "zipfile",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "requests",
                 "module": "",
                 "asname": null
               }
@@ -407,13 +417,116 @@
             ],
             "confs": [
               {
-                "name": "conf_fname_seq_zip",
-                "assignation": "conf_fname_seq_zip = 'mydata.zip'"
+                "name": "conf_vlab_name",
+                "assignation": "conf_vlab_name = 'DNA'"
+              },
+              {
+                "name": "conf_minio_user_local_flog",
+                "assignation": "conf_minio_user_local_flog = os.path.join(os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', f\"{'PEMA'}-{param_workflow_name}\"), 'log.md')"
+              },
+              {
+                "name": "conf_minio_user_local_data",
+                "assignation": "conf_minio_user_local_data = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', f\"{'PEMA'}-{param_workflow_name}\")"
               },
               {
                 "name": "conf_fname_par_tsv",
                 "assignation": "conf_fname_par_tsv = 'parameters.tsv'"
               },
+              {
+                "name": "conf_fname_seq_zip",
+                "assignation": "conf_fname_seq_zip = 'mydata.zip'"
+              }
+            ],
+            "params": [
+              {
+                "name": "param_workflow_name",
+                "type": "str",
+                "default_value": "test"
+              }
+            ],
+            "secrets": [],
+            "title": "dna-pema-runner-quan-pan-lifewatch-eu",
+            "description": "dna-pema-runner-quan-pan-lifewatch-eu",
+            "created": "2026-04-09T11:16:38.183827Z",
+            "modified": "2026-04-09T11:16:39.190687Z",
+            "version": 2,
+            "container_image": "ghcr.io/naavre/cells-vl-aneris/dna-pema-runner-quan-pan-lifewatch-eu:ef2f19f",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/e7d3b9f6515cec5661680556174fa1a664d790f1/dna-pema-runner-quan-pan-lifewatch-eu",
+            "is_draft": false,
+            "next_version": null
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 61
+        }
+      },
+      "e70d8bbf-c5b1-41d0-aab4-9fa934b97062": {
+        "id": "e70d8bbf-c5b1-41d0-aab4-9fa934b97062",
+        "position": {
+          "x": 699.1510474090405,
+          "y": 147.62954796030874
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "dummy_cell_arg_i": {
+            "id": "dummy_cell_arg_i",
+            "type": "left",
+            "properties": {
+              "color": "#982dd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": -2,
+              "y": 30
+            }
+          },
+          "dummy_cell_arg_o": {
+            "id": "dummy_cell_arg_o",
+            "type": "right",
+            "properties": {
+              "color": "#2d9bd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 252,
+              "y": 30
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/b34e5dc7-3d40-4a32-8793-6a3eac3b2ac4/",
+            "owner": "quan.pan@lifewatch.eu",
+            "virtual_lab": "aneris",
+            "shared_with_scopes": [],
+            "shared_with_users": [],
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-build:v0.1.14",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-runtime:v0.1.14"
+            },
+            "dependencies": [
+              {
+                "name": "os",
+                "module": "",
+                "asname": null
+              }
+            ],
+            "inputs": [
+              {
+                "name": "dummy_cell_arg_i",
+                "type": "str"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "dummy_cell_arg_o",
+                "type": "str"
+              }
+            ],
+            "confs": [
               {
                 "name": "conf_vlab_name",
                 "assignation": "conf_vlab_name = 'DNA'"
@@ -429,6 +542,10 @@
               {
                 "name": "conf_minio_user_local_root",
                 "assignation": "conf_minio_user_local_root = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA')"
+              },
+              {
+                "name": "conf_fname_par_tsv",
+                "assignation": "conf_fname_par_tsv = 'parameters.tsv'"
               }
             ],
             "params": [
@@ -446,12 +563,12 @@
             "secrets": [],
             "title": "dna-pema-parameters-quan-pan-lifewatch-eu",
             "description": "dna-pema-parameters-quan-pan-lifewatch-eu",
-            "created": "2026-04-09T10:11:52.227180Z",
-            "modified": "2026-04-09T10:11:52.618603Z",
-            "version": 1,
-            "container_image": "ghcr.io/naavre/cells-vl-aneris/dna-pema-parameters-quan-pan-lifewatch-eu:876ab36",
+            "created": "2026-04-09T11:41:46.635899Z",
+            "modified": "2026-04-09T11:41:47.390573Z",
+            "version": 3,
+            "container_image": "ghcr.io/naavre/cells-vl-aneris/dna-pema-parameters-quan-pan-lifewatch-eu:e481f53",
             "kernel": "ipython",
-            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/0516bc8242b18783f0147d7bf26ec0b31627b6a0/dna-pema-parameters-quan-pan-lifewatch-eu",
+            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/3edda77a4c5890f93f81cd87e9ba6254e100f1c2/dna-pema-parameters-quan-pan-lifewatch-eu",
             "is_draft": false,
             "next_version": null
           }
@@ -461,11 +578,11 @@
           "height": 61
         }
       },
-      "bf292bd3-1469-419e-a90f-14a7a25e3180": {
-        "id": "bf292bd3-1469-419e-a90f-14a7a25e3180",
+      "4296d2ac-5a77-492d-b000-ff2fc9c73c17": {
+        "id": "4296d2ac-5a77-492d-b000-ff2fc9c73c17",
         "position": {
-          "x": 1114.2833251953125,
-          "y": 319
+          "x": 1454.3880926130093,
+          "y": 315.21499448732084
         },
         "orientation": 0,
         "type": "workflow-cell",
@@ -497,7 +614,7 @@
         },
         "properties": {
           "cell": {
-            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/fd7c4b64-71cd-4c0b-8e89-34bfeeafc33a/",
+            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/e010fc51-89db-4f62-b353-86c95ad78abc/",
             "owner": "quan.pan@lifewatch.eu",
             "virtual_lab": "aneris",
             "shared_with_scopes": [],
@@ -513,17 +630,27 @@
                 "asname": null
               },
               {
+                "name": "asyncio",
+                "module": "",
+                "asname": null
+              },
+              {
                 "name": "requests",
                 "module": "",
                 "asname": null
               },
               {
-                "name": "datetime",
-                "module": "datetime",
+                "name": "urllib",
+                "module": "",
                 "asname": null
               },
               {
-                "name": "zipfile",
+                "name": "pandas",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "nest-asyncio",
                 "module": "",
                 "asname": null
               }
@@ -542,6 +669,10 @@
             ],
             "confs": [
               {
+                "name": "conf_vlab_name",
+                "assignation": "conf_vlab_name = 'DNA'"
+              },
+              {
                 "name": "conf_minio_user_local_flog",
                 "assignation": "conf_minio_user_local_flog = os.path.join(os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', f\"{'PEMA'}-{param_workflow_name}\"), 'log.md')"
               },
@@ -550,12 +681,8 @@
                 "assignation": "conf_minio_user_local_data = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', f\"{'PEMA'}-{param_workflow_name}\")"
               },
               {
-                "name": "conf_fname_seq_zip",
-                "assignation": "conf_fname_seq_zip = 'mydata.zip'"
-              },
-              {
-                "name": "conf_vlab_name",
-                "assignation": "conf_vlab_name = 'DNA'"
+                "name": "conf_delimiter_tsv",
+                "assignation": "conf_delimiter_tsv = '\\t'"
               }
             ],
             "params": [
@@ -566,14 +693,14 @@
               }
             ],
             "secrets": [],
-            "title": "dna-pema-runner-quan-pan-lifewatch-eu",
-            "description": "dna-pema-runner-quan-pan-lifewatch-eu",
-            "created": "2026-04-09T10:17:39.890236Z",
-            "modified": "2026-04-09T10:17:40.243867Z",
+            "title": "dna-worms-taxonomic-checker-wrapper-quan-pan-lifewatch-eu",
+            "description": "dna-worms-taxonomic-checker-wrapper-quan-pan-lifewatch-eu",
+            "created": "2026-04-09T12:03:21.555792Z",
+            "modified": "2026-04-09T12:03:22.089498Z",
             "version": 1,
-            "container_image": "ghcr.io/naavre/cells-vl-aneris/dna-pema-runner-quan-pan-lifewatch-eu:a519c9f",
+            "container_image": "ghcr.io/naavre/cells-vl-aneris/dna-worms-taxonomic-checker-wrapper-quan-pan-lifewatch-eu:7e9b2ac",
             "kernel": "ipython",
-            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/f1a89d437959ebadce8feccd0abb00e9256b2cd9/dna-pema-runner-quan-pan-lifewatch-eu",
+            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/8f1dad257c1b13b6f35cbdbc2a97ef3a2240abc1/dna-worms-taxonomic-checker-wrapper-quan-pan-lifewatch-eu",
             "is_draft": false,
             "next_version": null
           }
@@ -596,43 +723,54 @@
           "portId": "dummy_cell_arg_i"
         }
       },
-      "c259cca2-e5c3-4ebe-b23e-5957907a3909": {
-        "id": "c259cca2-e5c3-4ebe-b23e-5957907a3909",
-        "from": {
-          "nodeId": "7ca9c659-0579-4310-befb-01ce10136aa3",
-          "portId": "dummy_cell_arg_o"
-        },
-        "to": {
-          "nodeId": "f4686d5a-4db4-4fd6-84b1-3d32590dac1a",
-          "portId": "dummy_cell_arg_i"
-        }
-      },
-      "6745afee-85ff-4565-b4e0-217181ed5bd3": {
-        "id": "6745afee-85ff-4565-b4e0-217181ed5bd3",
+      "067d0fe4-df24-4d27-a46d-0f43ea1758f0": {
+        "id": "067d0fe4-df24-4d27-a46d-0f43ea1758f0",
         "from": {
           "nodeId": "de4fdcf2-d190-4766-b797-5f9ce4363719",
           "portId": "dummy_cell_arg_o"
         },
         "to": {
-          "nodeId": "bf292bd3-1469-419e-a90f-14a7a25e3180",
+          "nodeId": "d493ff55-ad95-4360-b1f4-967da224b774",
           "portId": "dummy_cell_arg_i"
         }
       },
-      "67280526-a894-4c47-b15a-0681f6ef177b": {
-        "id": "67280526-a894-4c47-b15a-0681f6ef177b",
+      "76cac3ad-bcca-4eef-9173-012af1d65f4d": {
+        "id": "76cac3ad-bcca-4eef-9173-012af1d65f4d",
         "from": {
-          "nodeId": "f4686d5a-4db4-4fd6-84b1-3d32590dac1a",
+          "nodeId": "7ca9c659-0579-4310-befb-01ce10136aa3",
           "portId": "dummy_cell_arg_o"
         },
         "to": {
-          "nodeId": "bf292bd3-1469-419e-a90f-14a7a25e3180",
+          "nodeId": "e70d8bbf-c5b1-41d0-aab4-9fa934b97062",
           "portId": "dummy_cell_arg_i"
         }
       },
-      "80c9a7ba-8cb8-41e9-8a02-f003d6f62a8a": {
-        "id": "80c9a7ba-8cb8-41e9-8a02-f003d6f62a8a",
+      "6746cb85-8f5e-4a0a-a8ce-c8d5a32e4528": {
+        "id": "6746cb85-8f5e-4a0a-a8ce-c8d5a32e4528",
         "from": {
-          "nodeId": "bf292bd3-1469-419e-a90f-14a7a25e3180",
+          "nodeId": "e70d8bbf-c5b1-41d0-aab4-9fa934b97062",
+          "portId": "dummy_cell_arg_o"
+        },
+        "to": {
+          "nodeId": "d493ff55-ad95-4360-b1f4-967da224b774",
+          "portId": "dummy_cell_arg_i"
+        }
+      },
+      "d558091b-ff3f-405f-b83e-dc413a727744": {
+        "id": "d558091b-ff3f-405f-b83e-dc413a727744",
+        "from": {
+          "nodeId": "d493ff55-ad95-4360-b1f4-967da224b774",
+          "portId": "dummy_cell_arg_o"
+        },
+        "to": {
+          "nodeId": "4296d2ac-5a77-492d-b000-ff2fc9c73c17",
+          "portId": "dummy_cell_arg_i"
+        }
+      },
+      "e8169927-031a-4601-a35b-1220e9e6b3ab": {
+        "id": "e8169927-031a-4601-a35b-1220e9e6b3ab",
+        "from": {
+          "nodeId": "4296d2ac-5a77-492d-b000-ff2fc9c73c17",
           "portId": "dummy_cell_arg_o"
         },
         "to": {
