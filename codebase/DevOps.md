@@ -1,4 +1,7 @@
 <!-- vscode-markdown-toc -->
+- [Template cell](#template-cell)
+  - [param cell](#param-cell)
+  - [exec cell](#exec-cell)
 - [PEMA](#pema)
   - [Requriements](#requriements)
   - [DevOps](#devops)
@@ -18,14 +21,10 @@
     - [UvA](#uva)
       - [VM](#vm)
         - [Docker Composer](#docker-composer)
-      - [requests](#requests)
+      - [curl](#curl)
         - [upload zip return case\_id](#upload-zip-return-case_id)
         - [run case\_id](#run-case_id)
         - [get case\_id result](#get-case_id-result)
-      - [curl](#curl)
-        - [upload zip return case\_id](#upload-zip-return-case_id-1)
-        - [run case\_id](#run-case_id-1)
-        - [get case\_id result](#get-case_id-result-1)
   - [Test](#test)
     - [test\_18S, gene\_16S](#test_18s-gene_16s)
     - [Res\_gene\_18S-PEMA\_v2.1.4-docker, gene\_18S](#res_gene_18s-pema_v214-docker-gene_18s)
@@ -39,6 +38,170 @@
 	autoSave=true
 	/vscode-markdown-toc-config -->
 <!-- /vscode-markdown-toc -->
+
+# Template cell
+
+## <a name='paramcell'></a>param cell
+
+```python
+# DO NOT CONTAINERISE
+# =====
+# Dependency
+# -----
+# ! pip install -r requirements.txt
+# ! pip list
+# ! conda list
+
+import os
+import sys
+from datetime import datetime
+
+# base settings
+# -----
+conf_vlab_name     = "DNA"
+conf_workflow_name = "PEMA"
+
+# conf_workflow_id = f"wid-{datetime.now().strftime('%Y%m%d_%H%M%S%f')}"
+param_workflow_name = f"wid-{datetime.now().strftime('%Y%m%d_%H%M%S%f')}"
+
+# dev
+# -----
+# library: --volume="//c/DockerShare/ECVs:/home/jovyan" naavre-fl-ecvs-jupyter:local
+# NaaVRE: /home/jovyan/Virtual Labs/ECVs/Git public
+# dir_code = os.path.join("/", "home", "jovyan", "Virtual Labs")
+# if not os.path.exists(dir_code):
+#     os.makedirs(dir_code)
+
+# dir_data = os.path.join("/", "home", "jovyan", "Cloud Storage", "naa-vre-user-data")
+# if not os.path.exists(dir_data):
+#     os.makedirs(dir_data)
+
+# conf_dir_code  = os.path.join(dir_code, "ECVs", "Git public", "library")
+# conf_dir_data  = os.path.join(dir_data, "ECVs", param_workflow_name)
+# conf_dir_param = os.path.join(dir_data, "ECVs", param_workflow_name)
+
+# local
+# -----
+conf_dir_workspace = os.path.join("/", "home", "jovyan", "Cloud Storage")
+
+conf_dir_data_local_tmp = os.path.join("/", "tmp", "data")
+
+# MINIO
+# -----
+conf_minio_public_bucket      = "naa-vre-public"
+conf_minio_public_bucket_root = f"vl-{conf_vlab_name.lower()}"
+conf_minio_public_local_root  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root)
+conf_minio_public_local_code  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root, "code")
+conf_minio_public_local_data  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root, "data", conf_workflow_name)
+
+conf_minio_user_bucket        = "naa-vre-user-data"
+# conf_minio_user_bucket_root   = param_user_email
+conf_minio_user_bucket_root   = conf_vlab_name
+conf_minio_user_local_root    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root)
+conf_minio_user_local_code    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root,   "library")
+conf_minio_user_local_data    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root,   f"{conf_workflow_name}-{param_workflow_name}")
+conf_minio_user_local_flog    = os.path.join(conf_minio_user_local_data, "log.md")
+
+# API key
+# -----
+# If running under NaaVRE, input `your api key` with the correct value and input in the GUI:
+secret_SERVICE_KEY = ""
+# secret_SERVICE_KEY = SecretsProvider().set_secret("secret_SERVICE_KEY")
+# secret_SERVICE_KEY = SecretsProvider().get_secret("secret_SERVICE_KEY")
+
+# Input param
+# -----
+conf_variable = ""
+
+param_variable = ""
+
+print("Finish: NaaVRE parameters")
+print(f"Workspace public:")
+print(f"  Root: {conf_minio_public_local_root}")
+print(f"  Code: {conf_minio_public_local_code}")
+print(f"  Data: {conf_minio_public_local_data}")
+
+print(f"Workspace user:")
+print(f"  Root: {conf_minio_user_local_root}")
+print(f"  Code: {conf_minio_user_local_code}")
+print(f"  Data: {conf_minio_user_local_data}")
+print(f"  Log:  {conf_minio_user_local_flog}")
+
+```
+
+## <a name='execcell'></a>exec cell
+
+```python
+# DNA, workflow start
+# ---
+# NaaVRE:
+#  cell:
+#   outputs:
+#    - dummy_cell_arg_o: String
+# ...
+
+import os
+import sys
+from datetime import datetime
+
+# sys.path.append(conf_minio_public_local_code)
+# sys.path.append(conf_minio_user_local_code)
+
+# prepare folders
+# .....
+if not os.path.exists(conf_dir_data_local_tmp):
+    os.makedirs(conf_dir_data_local_tmp)
+
+# if not os.path.exists(conf_minio_public_local_root):
+#     os.makedirs(conf_minio_public_local_root)
+
+if not os.path.exists(conf_minio_user_local_root):
+    os.makedirs(conf_minio_user_local_root)
+
+if not os.path.exists(conf_minio_user_local_data):
+    os.makedirs(conf_minio_user_local_data)
+    
+with open(conf_minio_user_local_flog, "w+") as fp_log:
+    fp_log.write(f"# {param_workflow_name}\n")
+
+# create log
+# .....
+print(param_workflow_name)
+workflow_step = "DNA-Start"
+
+if os.path.exists(conf_minio_user_local_flog):
+    with open(conf_minio_user_local_flog, "a+") as fp_log:
+        fp_log.write(f"\n## {workflow_step}\n") 
+else:
+    if not os.path.exists(conf_minio_user_local_data):
+        os.makedirs(conf_minio_user_local_data)
+    with open(conf_minio_user_local_flog, "w+") as fp_log:
+        fp_log.write(f"\n## {workflow_step}\n") 
+
+# lib
+# -----
+
+# input
+# -----
+dummy_cell_arg_i = "dummy input"
+
+# output
+# -----
+dummy_cell_arg_o = "dummy output"
+
+# func
+# -----
+
+# start
+# -----
+
+# -----
+with open(conf_minio_user_local_flog, "a+") as fp_log:
+    fp_log.write(f"\nFinish: {workflow_step}\n")
+    fp_log.write(f"\nOutput: {conf_minio_user_local_data}\n")
+
+print(f"Finish: {workflow_step}")
+```
 
 # <a name='PEMA'></a>PEMA
 
@@ -289,6 +452,8 @@ http {
 }
 ```
 
+Upload files
+
 ```shell
 ssh ubuntu@pema-dev.naavre.net
 
@@ -318,119 +483,6 @@ docker exec -it pema-pema-1 bash
 cd /home/ubuntu/pema/
 
 docker compose down
-```
-
-#### <a name='requests'></a>requests
-
-```python
-dir_pema = os.path.join(dir_data, "PEMA-Runner")
-if not os.path.exists(dir_pema):
-    os.makedirs(dir_pema)
-
-# Get pema
-# url = "https://pema-dev.naavre.net"
-url = "https://pema-dev.naavre.net/pema/case/"
-
-obj_response = requests.get(url)
-print(obj_response.status_code)
-# print(obj_response.text)
-
-dict_response = obj_response.json()
-for key, val in dict_response.items():
-    print("\n", key, "\n")
-    for val_sub in val:
-        print(val_sub, "\n")
-
-```
-
-##### upload zip return case_id
-
-```python
-# Upload mydata and param
-# output: case_id = "20260115_105210330663"
-# -----
-# dir_data = "/home/jovyan/Virtual Labs/Open Lab/Git public/tutorial/data"
-dir_pema = os.path.join(dir_data, "PEMA-Runner")
-if not os.path.exists(dir_pema):
-    os.makedirs(dir_pema)
-
-# start
-# .....
-fname_zip = "test.zip"
-# fname_zip = "Template-mydata_param.zip"
-file_zip  = os.path.join(dir_pema, fname_zip)
-
-url = "https://pema-dev.naavre.net/pema/case/"
-
-with open(file_zip, 'rb') as f:
-    print(f)
-    
-    files = {'case_zip_file': (fname_zip, f)}
-    print(files)
-
-    r = requests.post(url, files=files)
-    print(r.status_code)
-    print(r.text)
-    r.json()
-```
-
-##### run case_id
-
-```python
-# run pema
-# -----
-case_id = "20260115_105210330663"
-
-# start
-# .....
-url = f"https://pema-dev.naavre.net/pema/run/?case_id={case_id}"
-
-r = requests.post(url)
-print(r.status_code)
-print(r.text)
-# r.json()
-```
-
-##### get case_id result
-
-```python
-# get pema result
-# -----
-case_id = "20260115_105210330663"
-case_name = f"PEMA-{case_id}"
-
-# dir_data = "/home/jovyan/Virtual Labs/Open Lab/Git public/tutorial/data"
-dir_pema = os.path.join(dir_data, "PEMA-Runner", case_name)
-if not os.path.exists(dir_pema):
-    os.makedirs(dir_pema)
-
-# start
-# .....
-fname_zip = f"{case_name}.zip"
-file_zip  = os.path.join(dir_pema, fname_zip)
-
-url = f"https://pema-dev.naavre.net/pema/result/?case_id={case_id}"
-
-r = requests.get(url, stream=True)
-print(r.status_code)
-# print(r.text)
-# r.json()
-
-if r.status_code == 200:
-    chunk_size = 128
-    with open(file_zip, 'wb') as fd:
-        for chunk in r.iter_content(chunk_size=chunk_size):
-            fd.write(chunk)
-    
-    if not os.path.isfile(file_zip):
-        raise FileNotFoundError(str(file_seq_zip) + " is missing")
-    else:
-        print(file_zip)
-        
-        with zipfile.ZipFile(file_zip, 'r') as zip_ref:
-            zip_ref.extractall(dir_pema)
-else:
-    print(r.text)
 ```
 
 #### <a name='curl'></a>curl
