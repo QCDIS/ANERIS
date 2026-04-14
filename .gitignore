@@ -227,12 +227,4 @@ example/
 .vscode/
 
 .local/
-<<<<<<< HEAD
-<<<<<<< HEAD
 .python_history
-=======
-.python_history
->>>>>>> d02ef99 (new gitignore)
-=======
-.python_history
->>>>>>> d02ef99bb34b89582745da1754543d0dde10e502
