@@ -59,10 +59,10 @@ from datetime import datetime
 # base settings
 # -----
 conf_vlab_name     = "DNA"
-conf_workflow_name = "PEMA"
+# conf_workflow_name = "PEMA"
 
 # conf_workflow_id = f"wid-{datetime.now().strftime('%Y%m%d_%H%M%S%f')}"
-param_workflow_name = f"wid-{datetime.now().strftime('%Y%m%d_%H%M%S%f')}"
+param_workflow_name = "workflow name"
 
 # dev
 # -----
@@ -92,14 +92,14 @@ conf_minio_public_bucket      = "naa-vre-public"
 conf_minio_public_bucket_root = f"vl-{conf_vlab_name.lower()}"
 conf_minio_public_local_root  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root)
 conf_minio_public_local_code  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root, "code")
-conf_minio_public_local_data  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root, "data", conf_workflow_name)
+conf_minio_public_local_data  = os.path.join(conf_dir_workspace, conf_minio_public_bucket, conf_minio_public_bucket_root, "data")
 
 conf_minio_user_bucket        = "naa-vre-user-data"
 # conf_minio_user_bucket_root   = param_user_email
 conf_minio_user_bucket_root   = conf_vlab_name
 conf_minio_user_local_root    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root)
 conf_minio_user_local_code    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root,   "library")
-conf_minio_user_local_data    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root,   f"{conf_workflow_name}-{param_workflow_name}")
+conf_minio_user_local_data    = os.path.join(conf_dir_workspace, conf_minio_user_bucket,   conf_minio_user_bucket_root,   param_workflow_name)
 conf_minio_user_local_flog    = os.path.join(conf_minio_user_local_data, "log.md")
 
 # API key
