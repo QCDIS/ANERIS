@@ -113,8 +113,6 @@ def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
     #                 unit="record",
     #                 leave=False):
     for rec in occurrences:
-        print(f"  * {rec["occurrenceID"]}")
-
         lat = rec["decimalLatitude"]
         lon = rec["decimalLongitude"]
 
@@ -136,6 +134,8 @@ def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
             f"No valid sea-only distances could be computed to OBIS occurrences "
             f"for '{scientific_name}'."
         )
+
+    print(f"  * sea_distance_km = {best["sea_distance_km"]} km, {rec["occurrenceID"]}")
 
     return best
 
