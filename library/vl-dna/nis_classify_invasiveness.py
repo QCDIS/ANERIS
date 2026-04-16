@@ -14,7 +14,7 @@ import requests
 
 import pandas as pd
 
-from tqdm import tqdm  # status bars
+# from tqdm import tqdm  # status bars
 
 
 # NIS, Read input data
@@ -92,7 +92,6 @@ def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
     """
     From all OBIS occurrences of 'scientific_name', find the one with
     the shortest sea-only distance to (new_lat, new_lon).
-    Shows a tqdm progress bar for the sea-routing.
     """
     occurrences = get_obis_occurrences(scientific_name, limit=limit)
     if not occurrences:
@@ -103,10 +102,11 @@ def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
     best = None
 
     # Progress bar over all OBIS records
-    for rec in tqdm(occurrences,
-                    desc=f"Sea-routing OBIS for {scientific_name}",
-                    unit="record",
-                    leave=False):
+    # for rec in tqdm(occurrences,
+    #                 desc=f"Sea-routing OBIS for {scientific_name}",
+    #                 unit="record",
+    #                 leave=False):
+    for rec in occurrences:
         lat = rec["decimalLatitude"]
         lon = rec["decimalLongitude"]
         try:
