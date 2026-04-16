@@ -17,6 +17,14 @@ import pandas as pd
 # from tqdm import tqdm  # status bars
 
 
+BASE_OBIS = "https://api.obis.org/v3"
+
+BASE_MARINE_REGIONS = "https://www.marineregions.org/rest"
+BASE_WORMS          = "https://www.marinespecies.org/rest"
+
+_region_diag_cache = {}    
+
+
 # NIS, Read input data
 # =====
 
@@ -51,8 +59,6 @@ def dms_to_decimal(dms_str):
 
 # Find Closest Obis Occurrence
 # =====
-
-BASE_OBIS = "https://api.obis.org/v3"
 
 # 1. OBIS helpers: occurrences
 # .....
@@ -151,16 +157,12 @@ def sea_distance_km(ref_lat, ref_lon, lat, lon):
 
 # Classify with Progress
 # =====
-BASE_MARINE_REGIONS = "https://www.marineregions.org/rest"
-BASE_WORMS          = "https://www.marinespecies.org/rest"
 
 # 2. Marine Regions helpers (with bbox size filter)
 # .....
 # classify_with_progress(): get_filtered_mrgids_for_coord()
 
 # cache for MRGID -> diagonal distance (km)
-_region_diag_cache = {}
-
 
 def bbox_diagonal_km_from_degrees(min_lat, min_lon, max_lat, max_lon):
     """
