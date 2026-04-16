@@ -1,8 +1,6 @@
 <!-- vscode-markdown-toc -->
 - [Template cell](#template-cell)
   - [param cell](#param-cell)
-    - [python](#python)
-    - [R](#r)
   - [exec cell](#exec-cell)
 - [PEMA](#pema)
   - [Requriements](#requriements)
@@ -45,7 +43,7 @@
 
 ## <a name='paramcell'></a>param cell
 
-### <a name='python'></a>python
+### python
 
 ```python
 # DO NOT CONTAINERISE
@@ -133,7 +131,7 @@ print(f"  Log:  {conf_minio_user_local_flog}")
 
 ```
 
-### <a name='R'></a>R
+### R
 
 ```R
 
@@ -355,7 +353,7 @@ mydata  parameters.tsv  pema_latest.bds
 
 [local, FASTAPI](http://127.0.0.1/docs)
 
-workspace `C:\DockerShare\ANERIS\library\PEMA`
+workspace `C:\DockerShare\ANERIS\library\VM\PEMA`
 dataspace `C:\DockerShare\ANERIS\example\PEMA\analysis:/mnt/analysis`
 
 #### <a name='pema_org:hariszafpema:v.2.1.4'></a>pema_org: hariszaf/pema:v.2.1.4
@@ -369,7 +367,7 @@ docker exec -it pema_org bash
 #### <a name='pema_api:dockerforANERISproject'></a>pema_api: docker for  `ANERIS` project
 
 ```shell
-cd C:\DockerShare\ANERIS\library\PEMA
+cd C:\DockerShare\ANERIS\library\VM\PEMA
 
 docker system prune -f
 docker rmi pema-api:dev
@@ -492,10 +490,10 @@ sudo mkdir /mnt/pema
 sudo chmod 777 /mnt/pema
 scp -r C:\DockerShare\ANERIS\example\PEMA-Runner\analysis\case ubuntu@pema-dev.naavre.net:/mnt/pema/
 
-scp -r C:\DockerShare\ANERIS\library\PEMA\* ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
-scp C:\DockerShare\ANERIS\library\PEMA\docker-compose.yaml ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
+scp -r C:\DockerShare\ANERIS\library\VM\PEMA\* ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
+scp C:\DockerShare\ANERIS\library\VM\PEMA\docker-compose.yaml ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/
 
-scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS\library\PEMA\
+scp ubuntu@pema-dev.naavre.net:/home/ubuntu/pema/docker-compose.yaml C:\DockerShare\ANERIS\library\VM\PEMA\
 ```
 
 ##### Docker Composer
