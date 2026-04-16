@@ -178,10 +178,27 @@ else:
 # lib, minio_public
 # -----
 # sys.path.append(conf_minio_public_local_code)
+# print("sys.path minio_public")
+# for tmp_path in sys.path: print(f"* {tmp_path}")
+
+# py_module_name = 'nest_asyncio_naavre'
+# if py_module_name in sys.modules:
+#     print(f"{py_module_name} already in sys.modules")
+# elif (spec := importlib_util.find_spec(py_module_name)) is not None:
+#     # If you chose to perform the actual import ...
+#     py_module_obj = importlib_util.module_from_spec(spec)
+#     sys.modules[py_module_name] = py_module_obj
+#     spec.loader.exec_module(py_module_obj)
+#     print(f"{py_module_name} has been imported")
+# else:
+#     print(f"can't find the {py_module_name} module")
+# py_module_obj.apply()
 
 # lib, minio_user
 # -----
 # sys.path.append(conf_minio_user_local_code)
+# print("sys.path minio_user")
+# for tmp_path in sys.path: print(f"* {tmp_path}")
 
 # input
 # -----
