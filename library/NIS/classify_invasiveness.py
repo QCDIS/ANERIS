@@ -87,7 +87,7 @@ def get_obis_occurrences(scientific_name, limit=1000):
     return records
 
 
-# 1. OBIS helpers: occurrences + sea-only distance
+# 1. OBIS helpers: closest occurrence by sea-only distance
 def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
     """
     From all OBIS occurrences of 'scientific_name', find the one with
@@ -255,6 +255,7 @@ def get_region_bbox_diagonal_km(mrgid):
     diag_km = bbox_diagonal_km_from_degrees(min_lat, min_lon, max_lat, max_lon)
     _region_diag_cache[mrgid_str] = diag_km
     return diag_km
+
 
 # classify_with_progress()
 # .....
