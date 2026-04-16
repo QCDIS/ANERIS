@@ -1,0 +1,21 @@
+# docker-compose -f docker-compose-dev.yaml up
+# docker-compose -f docker-compose-dev.yaml down
+services:
+  aneris-dna:
+    image: naavre-fl-aneris-dna-jupyter:local
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:8888:8888'
+    # environment:
+    #   EXAMPLE: example
+    volumes:
+      - //c/DockerShare/ANERIS_DNA:/home/jovyan
+  pema-api:
+    image: pema-api:dev  # TODO: replace with pema image
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:80:80'
+    # environment:
+    #   EXAMPLE: example
+    volumes:
+      - //c/DockerShare/ANERIS_DNA/Example/PEMA-Runner/analysis:/mnt/analysis
