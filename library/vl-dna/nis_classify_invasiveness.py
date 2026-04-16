@@ -113,8 +113,11 @@ def find_closest_obis_occurrence(scientific_name, new_lat, new_lon, limit=200):
     #                 unit="record",
     #                 leave=False):
     for rec in occurrences:
+        print(f"  * {rec["occurrenceID"]}")
+
         lat = rec["decimalLatitude"]
         lon = rec["decimalLongitude"]
+
         try:
             d = sea_distance_km(new_lat, new_lon, lat, lon)
         except Exception as e:
