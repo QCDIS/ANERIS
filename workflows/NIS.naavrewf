@@ -9,8 +9,8 @@
       "d1e4a2a3-9bc5-4112-936f-5b0678e25ff3": {
         "id": "d1e4a2a3-9bc5-4112-936f-5b0678e25ff3",
         "position": {
-          "x": 891.9000244140625,
-          "y": 366
+          "x": 888.9000244140625,
+          "y": 363
         },
         "orientation": 0,
         "type": "workflow-cell",
@@ -92,161 +92,11 @@
           "height": 61
         }
       },
-      "d69c0840-9937-44cc-94c7-173fd8811824": {
-        "id": "d69c0840-9937-44cc-94c7-173fd8811824",
-        "position": {
-          "x": 551.9000244140625,
-          "y": 366
-        },
-        "orientation": 0,
-        "type": "workflow-cell",
-        "ports": {
-          "dummy_cell_arg_i": {
-            "id": "dummy_cell_arg_i",
-            "type": "left",
-            "properties": {
-              "color": "#982dd2",
-              "parentNodeType": "workflow-cell"
-            },
-            "position": {
-              "x": -2,
-              "y": 30
-            }
-          },
-          "dummy_cell_arg_o": {
-            "id": "dummy_cell_arg_o",
-            "type": "right",
-            "properties": {
-              "color": "#2d9bd2",
-              "parentNodeType": "workflow-cell"
-            },
-            "position": {
-              "x": 252,
-              "y": 30
-            }
-          }
-        },
-        "properties": {
-          "cell": {
-            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/769c9660-5310-4b57-8a4b-0fa880de91d8/",
-            "owner": "quan.pan@lifewatch.eu",
-            "virtual_lab": "aneris",
-            "shared_with_scopes": [],
-            "shared_with_users": [],
-            "base_container_image": {
-              "build": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-build:v0.1.14",
-              "runtime": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-runtime:v0.1.14"
-            },
-            "dependencies": [
-              {
-                "name": "sys",
-                "module": "",
-                "asname": null
-              },
-              {
-                "name": "os",
-                "module": "",
-                "asname": null
-              },
-              {
-                "name": "pandas",
-                "module": "",
-                "asname": "pd"
-              },
-              {
-                "name": "importlib.util",
-                "module": "",
-                "asname": "importlib_util"
-              }
-            ],
-            "inputs": [
-              {
-                "name": "dummy_cell_arg_i",
-                "type": "str"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "dummy_cell_arg_o",
-                "type": "str"
-              }
-            ],
-            "confs": [
-              {
-                "name": "conf_minio_user_local_data",
-                "assignation": "conf_minio_user_local_data = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', param_workflow_name)"
-              },
-              {
-                "name": "conf_minio_public_local_code",
-                "assignation": "conf_minio_public_local_code = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-public', f\"vl-{'DNA'.lower()}\", 'code')"
-              },
-              {
-                "name": "conf_minio_user_local_root",
-                "assignation": "conf_minio_user_local_root = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA')"
-              },
-              {
-                "name": "conf_delimiter_tsv",
-                "assignation": "conf_delimiter_tsv = '\\t'"
-              },
-              {
-                "name": "conf_vlab_name",
-                "assignation": "conf_vlab_name = 'DNA'"
-              },
-              {
-                "name": "conf_minio_user_local_flog",
-                "assignation": "conf_minio_user_local_flog = os.path.join(os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'DNA', param_workflow_name), 'log.md')"
-              }
-            ],
-            "params": [
-              {
-                "name": "param_MAX_OBIS_RECORDS",
-                "type": "int",
-                "default_value": "10000"
-              },
-              {
-                "name": "param_MAX_REGION_DIAGONAL_KM",
-                "type": "int",
-                "default_value": "3000"
-              },
-              {
-                "name": "param_fname_locations_tsv",
-                "type": "str",
-                "default_value": "nis-input_locations.tsv"
-              },
-              {
-                "name": "param_fname_species_tsv",
-                "type": "str",
-                "default_value": "nis-input_species.tsv"
-              },
-              {
-                "name": "param_workflow_name",
-                "type": "str",
-                "default_value": "workflow name"
-              }
-            ],
-            "secrets": [],
-            "title": "nis-classify-invasiveness-quan-pan-lifewatch-eu",
-            "description": "nis-classify-invasiveness-quan-pan-lifewatch-eu",
-            "created": "2026-04-16T11:44:25.579947Z",
-            "modified": "2026-04-16T11:44:26.280862Z",
-            "version": 1,
-            "container_image": "ghcr.io/naavre/cells-vl-aneris/nis-classify-invasiveness-quan-pan-lifewatch-eu:91baef5",
-            "kernel": "ipython",
-            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/6bc136ffe5fbac953eeea4dc07b271f263b78c33/nis-classify-invasiveness-quan-pan-lifewatch-eu",
-            "is_draft": false,
-            "next_version": null
-          }
-        },
-        "size": {
-          "width": 252,
-          "height": 61
-        }
-      },
       "6e79e73b-2986-41a1-b882-20dc2eee17dd": {
         "id": "6e79e73b-2986-41a1-b882-20dc2eee17dd",
         "position": {
           "x": 209.9000244140625,
-          "y": 367
+          "y": 363
         },
         "orientation": 0,
         "type": "workflow-cell",
@@ -335,28 +185,178 @@
           "width": 252,
           "height": 61
         }
+      },
+      "7bb62d5e-412b-412c-a5ee-3671c8697bd1": {
+        "id": "7bb62d5e-412b-412c-a5ee-3671c8697bd1",
+        "position": {
+          "x": 559.066650390625,
+          "y": 363
+        },
+        "orientation": 0,
+        "type": "workflow-cell",
+        "ports": {
+          "dummy_cell_arg_i": {
+            "id": "dummy_cell_arg_i",
+            "type": "left",
+            "properties": {
+              "color": "#982dd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": -2,
+              "y": 30
+            }
+          },
+          "dummy_cell_arg_o": {
+            "id": "dummy_cell_arg_o",
+            "type": "right",
+            "properties": {
+              "color": "#2d9bd2",
+              "parentNodeType": "workflow-cell"
+            },
+            "position": {
+              "x": 252,
+              "y": 30
+            }
+          }
+        },
+        "properties": {
+          "cell": {
+            "url": "https://beta.naavre.net/naavre-catalogue-service/workflow-cells/29fb2b9c-73cb-4f3e-839a-78a08a6fe04c/",
+            "owner": "quan.pan@lifewatch.eu",
+            "virtual_lab": "aneris",
+            "shared_with_scopes": [],
+            "shared_with_users": [],
+            "base_container_image": {
+              "build": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-build:v0.1.14",
+              "runtime": "ghcr.io/naavre/flavors/naavre-fl-aneris-cell-runtime:v0.1.14"
+            },
+            "dependencies": [
+              {
+                "name": "sys",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "os",
+                "module": "",
+                "asname": null
+              },
+              {
+                "name": "pandas",
+                "module": "",
+                "asname": "pd"
+              },
+              {
+                "name": "importlib.util",
+                "module": "",
+                "asname": "importlib_util"
+              }
+            ],
+            "inputs": [
+              {
+                "name": "dummy_cell_arg_i",
+                "type": "str"
+              }
+            ],
+            "outputs": [
+              {
+                "name": "dummy_cell_arg_o",
+                "type": "str"
+              }
+            ],
+            "confs": [
+              {
+                "name": "conf_vlab_name",
+                "assignation": "conf_vlab_name = 'NIS'"
+              },
+              {
+                "name": "conf_minio_user_local_flog",
+                "assignation": "conf_minio_user_local_flog = os.path.join(os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'NIS', param_workflow_name), 'log.md')"
+              },
+              {
+                "name": "conf_minio_user_local_data",
+                "assignation": "conf_minio_user_local_data = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'NIS', param_workflow_name)"
+              },
+              {
+                "name": "conf_minio_public_local_code",
+                "assignation": "conf_minio_public_local_code = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-public', f\"vl-{'NIS'.lower()}\", 'code')"
+              },
+              {
+                "name": "conf_minio_user_local_root",
+                "assignation": "conf_minio_user_local_root = os.path.join(os.path.join('/', 'home', 'jovyan', 'Cloud Storage'), 'naa-vre-user-data', 'NIS')"
+              },
+              {
+                "name": "conf_delimiter_tsv",
+                "assignation": "conf_delimiter_tsv = '\\t'"
+              }
+            ],
+            "params": [
+              {
+                "name": "param_workflow_name",
+                "type": "str",
+                "default_value": "workflow name"
+              },
+              {
+                "name": "param_MAX_OBIS_RECORDS",
+                "type": "int",
+                "default_value": "10000"
+              },
+              {
+                "name": "param_MAX_REGION_DIAGONAL_KM",
+                "type": "int",
+                "default_value": "3000"
+              },
+              {
+                "name": "param_fname_locations_tsv",
+                "type": "str",
+                "default_value": "nis-input_locations.tsv"
+              },
+              {
+                "name": "param_fname_species_tsv",
+                "type": "str",
+                "default_value": "nis-input_species.tsv"
+              }
+            ],
+            "secrets": [],
+            "title": "nis-classify-invasiveness-quan-pan-lifewatch-eu",
+            "description": "nis-classify-invasiveness-quan-pan-lifewatch-eu",
+            "created": "2026-04-17T09:41:29.395910Z",
+            "modified": "2026-04-17T09:41:29.994370Z",
+            "version": 2,
+            "container_image": "ghcr.io/naavre/cells-vl-aneris/nis-classify-invasiveness-quan-pan-lifewatch-eu:b8f90e0",
+            "kernel": "ipython",
+            "source_url": "https://github.com/NaaVRE/cells-vl-aneris/tree/de98e75368bb493c2f55ffbe511ec1e9f615a786/nis-classify-invasiveness-quan-pan-lifewatch-eu",
+            "is_draft": false,
+            "next_version": null
+          }
+        },
+        "size": {
+          "width": 252,
+          "height": 61
+        }
       }
     },
     "links": {
-      "eb8c2d0d-6c5e-4771-af7f-7fae1ab738cf": {
-        "id": "eb8c2d0d-6c5e-4771-af7f-7fae1ab738cf",
-        "from": {
-          "nodeId": "d69c0840-9937-44cc-94c7-173fd8811824",
-          "portId": "dummy_cell_arg_o"
-        },
-        "to": {
-          "nodeId": "d1e4a2a3-9bc5-4112-936f-5b0678e25ff3",
-          "portId": "dummy_cell_arg_i"
-        }
-      },
-      "87eedcd7-0ef3-464a-8006-86cd40878477": {
-        "id": "87eedcd7-0ef3-464a-8006-86cd40878477",
+      "4be79ff8-0ea5-4de2-a515-2c7a574ee69f": {
+        "id": "4be79ff8-0ea5-4de2-a515-2c7a574ee69f",
         "from": {
           "nodeId": "6e79e73b-2986-41a1-b882-20dc2eee17dd",
           "portId": "dummy_cell_arg_o"
         },
         "to": {
-          "nodeId": "d69c0840-9937-44cc-94c7-173fd8811824",
+          "nodeId": "7bb62d5e-412b-412c-a5ee-3671c8697bd1",
+          "portId": "dummy_cell_arg_i"
+        }
+      },
+      "5f090894-e33c-4491-9ed2-8d3dfb6bfe23": {
+        "id": "5f090894-e33c-4491-9ed2-8d3dfb6bfe23",
+        "from": {
+          "nodeId": "7bb62d5e-412b-412c-a5ee-3671c8697bd1",
+          "portId": "dummy_cell_arg_o"
+        },
+        "to": {
+          "nodeId": "d1e4a2a3-9bc5-4112-936f-5b0678e25ff3",
           "portId": "dummy_cell_arg_i"
         }
       }
