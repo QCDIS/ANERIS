@@ -2,8 +2,9 @@
 
 |    |    |
 | -- | -- |
-| Author    | Pascal Hablützel |
-| Developer | Quan Pan |
+| Model Developer | Pascal Hablützel |
+| VLab Developer  | Quan Pan |
+| Reference |  |
 
 Checking local occurrence status of marine species: native, introduced, invasive  
 
